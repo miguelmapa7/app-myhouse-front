@@ -1,7 +1,8 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link, Outlet } from "react-router-dom";
-import { ProductProvider } from "../../context/ProductContex";
+//import { ProductProvider } from "../../context/ProductContex";
+//import { ContactProvider } from "../../context/ContactContext";
 import logo from "../private/assets/logo.jpg";
 import AuthContext from "../../context/AuthContext";
 import { useContext } from "react";
@@ -46,10 +47,10 @@ const Dashboard = () => {
           )}
           {auth && (
             <Nav className="me-auto">
-              <Nav.Link as={Link} to="/catalogue" href="#home">
+              <Nav.Link as={Link} to="/propietarios" href="#propietarios">
                 <h2>Propietarios</h2>
               </Nav.Link>
-              <Nav.Link as={Link} to="/products" href="#catalogue">
+              <Nav.Link as={Link} to="/grupofamiliar" href="#grupofamiliar">
                 <h2>Grupo-Familiar</h2>
               </Nav.Link>
               <button
@@ -65,11 +66,7 @@ const Dashboard = () => {
 
       {/**Envuelvo el outles en el contexto del ProviderProvider */}
 
-      <ProductProvider>
-        {/**Aqui se mostrara lo componentes al navegar  por el nav */}
-
-        <Outlet></Outlet>
-      </ProductProvider>
+      <Outlet></Outlet>
     </>
   );
 };

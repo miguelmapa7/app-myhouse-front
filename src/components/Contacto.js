@@ -4,19 +4,21 @@ import { useState, useContext } from "react";
 import ContactContext from "../context/ContactContext";
 import "./Components.css";
 
-//objeto para inicializar el formulario
-const objForm = {
-  nombre: "",
-  apellidos: "",
-  correo: "",
-  mensaje: "",
-};
 export const Contacto = () => {
   //Utilizo el Contexto - creo contexto de tipo AuthContext- utiliso el handleRegister
-  const { handleCreate } = useContext(ContactContext);
 
+  const { handleCreateCt } = useContext(ContactContext);
+  //objeto para inicializar el formulario
+
+  const objForm = {
+    nombre: "",
+    apellidos: "",
+    correo: "",
+    mensaje: "",
+  };
   //creo el estado - inicializo el from - creo primero la estrututa de arriba
   const [form, setForm] = useState(objForm);
+
   //creo el metod y capturo el evento
   const handleForm = (e) => {
     //desestructuro el el objeto, capturo el value y se lo asigno al name y lluego al objeto mayor
@@ -29,15 +31,9 @@ export const Contacto = () => {
     //Al dar click en registrar-LLamo el {handleRegister} importado del contexto
     //llamar la funcion del contexto y le envio el formulario
     //al contexto
-    handleCreate(form)
-      .then((resp) => {
-        console.log(resp);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    //limpio el formulario
-    setForm(objForm);
+    handleCreateCt(form);
+    // //limpio el formulario
+    // setForm(objForm);
   };
 
   return (

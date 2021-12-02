@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import { ProductProvider } from "./context/ProductContex";
+import { ContactProvider } from "./context/ContactContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
@@ -11,9 +13,13 @@ import { AuthProvider } from "./context/AuthContext";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
+      <ProductProvider>
+        <ContactProvider>
+          <AuthProvider>
+            <App />
+          </AuthProvider>
+        </ContactProvider>
+      </ProductProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

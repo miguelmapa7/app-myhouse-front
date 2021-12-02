@@ -12,8 +12,8 @@ const ProductProvider = ({ children }) => {
     let resp = await fetch(apiProduct, {
       method: "POST",
       headers: {
-        "Contect-Type": "application/json",
-        Autorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(objProduct),
     });

@@ -4,29 +4,31 @@ import { apiContacto } from "./Api";
 
 const ContactContext = createContext();
 
-const ContacProvider = ({ children }) => {
+const ContactProvider = ({ children }) => {
   console.log("Hola Hola");
   //cero el metodo para crar prodcutos
-  const handleCreate = async (objxxxxx) => {
+  const handleCreateCt = async (objContact) => {
     //capturo el token del user autenticado
     // let token = localStorage.getItem("token");
     let resp = await fetch(apiContacto, {
       method: "POST",
       headers: {
-        "Contect-Type": "application/json",
-        //Autorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        // Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(objxxxxx),
+      body: JSON.stringify(objContact),
     });
-    console.log("Hola Hola");
+    resp.json().then((resp) => {
+      console.log(resp);
+    });
     return resp;
   };
-  const data = { handleCreate };
-
+  const data = { handleCreateCt };
+  console.log(children);
   return (
     <ContactContext.Provider value={data}>{children}</ContactContext.Provider>
   );
 };
 
-export { ContacProvider };
+export { ContactProvider };
 export default ContactContext;

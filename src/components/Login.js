@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Form } from "react-bootstrap";
-import "./Components.css";
 import { useState } from "react";
 import AuthContext from "../context/AuthContext";
 import { useNavigate } from "react-router";
 import { Routes, Route, Link } from "react-router-dom";
+import "./Components.css";
 
 //defino el objeto
 const objForm = {

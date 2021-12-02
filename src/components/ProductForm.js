@@ -18,18 +18,18 @@ const ProductForm = () => {
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-  
+
   //metodo 2
   const handleSubmit = (e) => {
     e.preventDefault();
-    // le paso el formulario 
-     handleCreate(form)
-    .then((resp) => {
+    // le paso el formulario
+    handleCreate(form)
+      .then((resp) => {
         console.log(resp);
       })
-     .catch((error) => {
+      .catch((error) => {
         console.error(error);
-       });
+      });
     setForm(objForm);
   };
 
